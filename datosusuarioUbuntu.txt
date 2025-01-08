@@ -1,8 +1,0 @@
-#!/bin/bash
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install -y bind9
-sudo apt install -y apache2 
-# sudo apt install -y mariadb-server
-sudo apt install -y php php-mysql
-sudo systemctl restart apache2
