@@ -1,0 +1,124 @@
+#!/bin/bash
+echo ""
+echo "########## Comprobando conexión a internet"
+echo ""
+ping -c4 www.google.com
+ping -c4 8.8.8.8
+
+# Actualización del sistema operativo
+echo ""
+echo "########## Actualizando Sistema"
+echo ""
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+
+echo ""
+echo "########## Instalando Librerias de Python"
+echo ""
+# Instacion Librerias Python3
+sudo apt-get install python3-pip -y
+sudo pip install virtualenv -y
+
+echo ""
+echo "########## Instalando Metasploit"
+echo ""
+# Instalación de Metasploit (Framework Pruebas de Penetración)
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+sudo chmod 755 msfinstall
+sudo ./msfinstall
+
+echo ""
+echo "########## Instalando Nmap"
+echo ""
+# Instalación de Nmap (Enumeración)
+sudo apt-get install nmap -y
+
+echo ""
+echo "########## Actualizando Hping3"
+echo ""
+# Instalación de HPing3 (Enviar paquetes ICMP/UDP/TCP personalizados)
+sudo apt-get install hping3 -y
+
+echo ""
+echo "########## Instalando Scapy"
+echo ""
+# Instalación de Scapy (Manipulación de paquetes)
+sudo apt-get install python3-scapy -y
+
+echo ""
+echo "########## Instalando Yersinia"
+echo ""
+# Instalación de Yersinia (Ataques de Red)
+sudo apt-get install yersinia -y
+
+echo ""
+echo "########## Instalando Wfuzz y Gobuster"
+echo ""
+# Instalación de Wfuzz (Fuzzing)
+sudo apt-get install wfuzz -y
+sudo apt-get install gobuster -y
+
+echo ""
+echo "########## Instalando SqlMap"
+echo ""
+# Instalación de SQLMap (Inyecciones SQL)
+sudo apt-get install sqlmap -y
+
+echo ""
+echo "########## Actualizando Hydra"
+echo ""
+# Instalación de Hydra (Ataques de Fuerza Bruta)
+sudo apt-get install hydra -y
+
+echo ""
+echo "########## Instalando John The Ripper"
+echo ""
+# Instalación de John the Ripper (Descifrador de contraseñas)
+sudo apt-get install john -y
+
+echo ""
+echo "########## Instalando DNSRecon"
+echo ""
+# Instalación de DNSRecon (Herramienta de escaneo y enumeración DNS)
+sudo apt-get install dnsrecon -y
+
+echo ""
+echo "########## Instalando WhatWeb"
+echo ""
+# Instalación de WhatWeb (Recopila información de sito Web)
+sudo apt-get install whatweb -y
+
+echo ""
+echo "########## Instalando TShark"
+echo ""
+# Instlación de Tshark (Capt-getura y Analisis de Paquetes)
+sudo DEBIAN_FRONTEND=noninteractive apt-get install tshark -y
+
+echo ""
+echo "########## Cambiando Hostname"
+echo ""
+# Cambiar Hostname
+sudo hostnamectl set-hostname Auditor
+
+# Instalación de Evil-WinRM (Marco de pruebas de penetración)
+#sudo gem install evil-winrm
+
+# Instalación de OpenVAS (Escáner de vulnerabilidades)
+#sudo apt-get install -y gvm
+#sudo gvm-setup
+#sudo systemctl start gvmd
+#sudo systemctl start ospd-openvas
+#sudo systemctl start gsad
+
+# Descargar Diccionarios
+echo ""
+echo "########## Descargando Diccionario Rockyou"
+echo ""
+cd /home/ubuntu/
+mkdir diccionarios
+cd diccionarios
+#git clone https://github.com/danielmiessler/SecLists.git
+sudo git clone https://github.com/zacheller/rockyou.git
+sudo tar -xvzf ./rockyoy/rockyou.txt.tar.gz
+sudo rm -Rf rockyou
